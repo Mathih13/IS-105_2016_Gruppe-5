@@ -9,7 +9,7 @@ print "To play, type either rock, paper or scissors."
 print ""
 
 playerChoice = raw_input("Your Choice: ")
-
+checkPlayer()
 
 import random
 
