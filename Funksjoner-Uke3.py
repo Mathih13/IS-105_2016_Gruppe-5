@@ -25,7 +25,7 @@ def subtract():
     return
 
 
-def divide();
+def divide():
     print "divide"
     x = input('Enter first number: ')
     y = input('Enter second number: ')
