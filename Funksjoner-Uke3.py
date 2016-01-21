@@ -45,8 +45,8 @@ def divide():
 
 def plusminus2():
     print "plus - 2"
-    x = input ('Enter first number')
-    y = input ('Enter second number')
+    x = input ('Enter first number: ')
+    y = input ('Enter second number: ')
     z = 2
     sum = (int(x) + int(y)) - int(z)
     print sum
