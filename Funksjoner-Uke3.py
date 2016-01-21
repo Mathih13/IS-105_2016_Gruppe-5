@@ -33,12 +33,12 @@ def divide():
     print sum
     return
 
-def plus - 2 ():
+def plusminus2():
     print "plus - 2"
     x = input ('Enter first number')
     y = input ('Enter second number')
     z = 2
-    print sum (int x + int y - int z)
+    print sum ((int x + int y) - int z)
     return
 
 
