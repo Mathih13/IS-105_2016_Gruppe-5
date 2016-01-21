@@ -1,36 +1,48 @@
+# Import random functionality
 import random
+import sys
 
-<<<<<<< HEAD
 
+# Check the choice the player made and assign numeric value.
 def checkPlayer():
     if playerChoice == "rock":
-        p = 1
+        x = 1
         
     
     elif playerChoice == "paper":
-        p = 2 
+        x = 2 
         
        
     elif playerChoice == "scissors":
-        p = 3
+        x = 3
+    else:
+        x = 0
+        sys.exit("No valid option chosen. Shutting down.")
+    return x
 
-    return 
-=======
+# Generate a random choice for computer.
 def randomNr():   
-    c = (random.randint(1,3))
+    i = (random.randint(1,3))
+    return i
+
+def startgame():
+    #Welcome Text and Call to Action
+    print "Welcome to Rock, Paper, Scissors!"
+    print "#####################################"
+    print "To play, type either rock, paper or scissors."
+    print ""
     return
 
->>>>>>> origin/Feature-RockPaperScissor
-
-#Welcome Text and Call to Action
-print "Welcome to Rock, Paper, Scissors!"
-print "#####################################"
-print "To play, type either rock, paper or scissors."
-print ""
-
+ 
+ 
+startgame()
 playerChoice = raw_input("Your Choice: ")
-checkPlayer()
-randomNr()
+
+p = checkPlayer()
+c = randomNr()
+
+print "Player: ", p,
+print "Computer: ", c,
 
 
 
