@@ -1,4 +1,6 @@
+import random
 
+<<<<<<< HEAD
 
 def checkPlayer():
     if playerChoice == "rock":
@@ -13,6 +15,12 @@ def checkPlayer():
         p = 3
 
     return 
+=======
+def randomNr():   
+    c = (random.randint(1,3))
+    return
+
+>>>>>>> origin/Feature-RockPaperScissor
 
 #Welcome Text and Call to Action
 print "Welcome to Rock, Paper, Scissors!"
@@ -22,13 +30,10 @@ print ""
 
 playerChoice = raw_input("Your Choice: ")
 checkPlayer()
-
-import random
-
-def randomNr():   
-    print(random.randint(1,3))
-    return
 randomNr()
+
+
+
 
 
 
