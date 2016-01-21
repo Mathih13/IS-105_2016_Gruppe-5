@@ -1,10 +1,3 @@
-calc = input('What operator do you want to use? ')
-
-if calc == 'multiplication':
-    multiply()
-elif calc == 'subtraction':
-    subtract()
-
 def multiply():
     print "Multiplication"
     x = input('Enter first number: ')
@@ -23,4 +16,15 @@ def subtract():
     sum = int(x) - int(y)
     print sum
     return
+
+
+
+calc = raw_input('What operator do you want to use? ')
+
+if calc == 'multiplication':
+    multiply()
+elif calc == 'subtraction':
+    subtract()
+
+
 
