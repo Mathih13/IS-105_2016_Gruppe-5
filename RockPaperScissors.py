@@ -46,7 +46,7 @@ c = randomNr()
 
 
 
-def play(p, c):
+def play():
     if p == 1:
         print("You chose rock.")
         if c == 1:
@@ -74,8 +74,6 @@ def play(p, c):
         elif c == 3:
             print("The computer chose scissor too, it's a tie")
 
-
-
-
-
- 
+            return
+        
+play()
