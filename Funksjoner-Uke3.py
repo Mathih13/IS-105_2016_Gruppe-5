@@ -1,4 +1,6 @@
 
+import math
+
 def multiply():
     print "Multiplication"
     x = input('Enter first number: ')
@@ -24,6 +26,13 @@ def subtract():
     print sum
     return
 
+def squareroot(): 
+    print "squareroot"
+    x = input('Enter number: ')
+    sum = math.sqrt(x)
+    print sum
+    return
+
 def divide():   
     print "divide"
     x = input('Enter first number: ')
@@ -46,5 +55,8 @@ elif calc == 'addition':
         pluss()  
 elif calc == 'divide':
     divide()
+elif calc == 'squareroot':
+    squareroot()
+    
 
 
