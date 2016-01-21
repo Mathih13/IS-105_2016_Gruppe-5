@@ -11,4 +11,13 @@ print ""
 playerChoice = raw_input("Your Choice: ")
 
 
+import random
+
+def randomNr():   
+    print(random.randint(1,3))
+    return
+randomNr()
+
+
+
  
