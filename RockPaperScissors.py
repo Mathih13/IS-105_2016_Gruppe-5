@@ -31,18 +31,20 @@ def startgame():
     print "#####################################"
     print "To play, type either rock, paper or scissors."
     print ""
-    return
+    choice = raw_input("Your Choice: ")
+    return choice
 
  
  
-startgame()
-playerChoice = raw_input("Your Choice: ")
+
+
+playerChoice = startgame()
 
 p = checkPlayer()
 c = randomNr()
 
-print "Player: ", p,
-print "Computer: ", c,
+print p
+
 
 
 
