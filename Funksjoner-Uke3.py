@@ -1,15 +1,4 @@
-<<<<<<< Updated upstream
-=======
-calc = input('What operator do you want to use? ')
 
-if calc == 'multiplication':
-    multiply()
-elif calc == 'subtraction':
-    subtract()
-elif calc == 'pluss':
-    pluss()
-
->>>>>>> Stashed changes
 def multiply():
     print "Multiplication"
     x = input('Enter first number: ')
@@ -18,8 +7,13 @@ def multiply():
     print sum
     return
 
-<<<<<<< Updated upstream
 
+def pluss():   
+    x = input('Enter first number: ')
+    y = input('Enter second number: ')
+    sum = int(x) + int(y)
+    print sum
+    return
 
 
 def subtract(): 
@@ -30,7 +24,6 @@ def subtract():
     print sum
     return
 
-<<<<<<< Updated upstream
 
 
 calc = raw_input('What operator do you want to use? ')
@@ -39,26 +32,7 @@ if calc == 'multiplication':
     multiply()
 elif calc == 'subtraction':
     subtract()
+elif calc == 'addition':
+        pluss()    
 
 
-
-=======
-=======
-<<<<<<< Updated upstream
-=======
-multiply()
-
-def pluss():   
-    x = input('Enter first number: ')
-    y = input('Enter second number: ')
-    sum = int(x) + int(y)
-    print sum
-    return
-
-pluss()
-
-
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
->>>>>>> Stashed changes
