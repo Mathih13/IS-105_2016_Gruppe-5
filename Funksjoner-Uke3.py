@@ -33,15 +33,13 @@ def squareroot():
     print sum
     return
 
-def divide():   
+def divide():
     print "divide"
     x = input('Enter first number: ')
     y = input('Enter second number: ')
     sum = int(x) / int(y)
     print sum
     return
-
-divide()
 
 
 
