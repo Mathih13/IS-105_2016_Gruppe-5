@@ -27,6 +27,7 @@ def subtract():
     return
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 def squareroot(): 
     print "squareroot"
     x = input('Enter number: ')
@@ -43,6 +44,10 @@ def divide():
 def divide():
 >>>>>>> origin/develop
 >>>>>>> 5cb5994778537593a4458db745c78eb56ec483fe
+=======
+
+def divide():
+>>>>>>> 7c7669f09df7d4ed507065e0127a2e3b32ff9f46
     print "divide"
     x = input('Enter first number: ')
     y = input('Enter second number: ')
@@ -50,18 +55,13 @@ def divide():
     print sum
     return
 
-<<<<<<< HEAD
-divide()
-=======
-def plus - 2 ():
+def plusminus2():
     print "plus - 2"
     x = input ('Enter first number')
     y = input ('Enter second number')
     z = 2
-    print sum (int x + int y - int z)
+    print sum ((int x + int y) - int z)
     return
-
->>>>>>> origin/develop
 
 
 
