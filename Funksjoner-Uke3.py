@@ -24,8 +24,12 @@ def subtract():
     print sum
     return
 
+<<<<<<< HEAD
+def divide():   
+=======
 
 def divide():
+>>>>>>> origin/develop
     print "divide"
     x = input('Enter first number: ')
     y = input('Enter second number: ')
@@ -33,7 +37,14 @@ def divide():
     print sum
     return
 
+<<<<<<< HEAD
 def plusminus2():
+=======
+<<<<<<< HEAD
+divide()
+=======
+def plus - 2 ():
+>>>>>>> origin/develop
     print "plus - 2"
     x = input ('Enter first number')
     y = input ('Enter second number')
@@ -41,6 +52,7 @@ def plusminus2():
     print sum ((int x + int y) - int z)
     return
 
+>>>>>>> origin/develop
 
 
 
