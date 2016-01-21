@@ -1,5 +1,8 @@
+import random
 
-
+def randomNr():   
+    c = (random.randint(1,3))
+    return
 
 
 #Welcome Text and Call to Action
@@ -10,13 +13,10 @@ print ""
 
 playerChoice = raw_input("Your Choice: ")
 checkPlayer()
-
-import random
-
-def randomNr():   
-    print(random.randint(1,3))
-    return
 randomNr()
+
+
+
 
 
 
