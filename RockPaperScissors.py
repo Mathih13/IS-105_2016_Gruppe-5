@@ -1,6 +1,18 @@
 
 
+def checkPlayer():
+    if playerChoice == "rock":
+        p = 1
+        
+    
+    elif playerChoice == "paper":
+        p = 2 
+        
+       
+    elif playerChoice == "scissors":
+        p = 3
 
+    return 
 
 #Welcome Text and Call to Action
 print "Welcome to Rock, Paper, Scissors!"
