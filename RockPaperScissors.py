@@ -16,6 +16,7 @@ def checkPlayer():
     elif playerChoice == "scissors":
         x = 3
     else:
+        # If player does not choose a valid option, the program will shut down.
         x = 0
         sys.exit("No valid option chosen. Shutting down.")
     return x
@@ -43,7 +44,6 @@ playerChoice = startgame()
 p = checkPlayer()
 c = randomNr()
 
-print p
 
 
 
