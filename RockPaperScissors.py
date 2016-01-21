@@ -46,7 +46,33 @@ c = randomNr()
 
 
 
-
+def play(p, c):
+    if p == 1:
+        print("You chose rock.")
+        if c == 1:
+            print("The computer chose rock too, it's a tie.")
+        elif c == 2:
+            print("The computer chose paper, you lose.")
+        elif c == 3:
+            print("The computer chose scissor, you win!")
+            
+    if p == 2:
+        print("You chose paper.")
+        if c == 1:
+            print("The computer chose rock, you win!")
+        elif c == 2:
+            print("The computer chose paper too, it's a tie.")
+        elif c == 3:
+            print("The computer chose scissor, you lose.")
+            
+    if p == 3:
+        print("You chose scissor.")
+        if c == 1:
+            print("The computer chose rock, you lose.")
+        elif c == 2:
+            print("The computer chose paper, you win!")
+        elif c == 3:
+            print("The computer chose scissor too, it's a tie")
 
 
 
