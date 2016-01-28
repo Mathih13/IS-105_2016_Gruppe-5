@@ -1,3 +1,2 @@
-# IS-105_2016_Gruppe 5
-
-Hei på dere.
+# is-105
+Repository for IS-105 at University of Agder, Institute of Information Systems
