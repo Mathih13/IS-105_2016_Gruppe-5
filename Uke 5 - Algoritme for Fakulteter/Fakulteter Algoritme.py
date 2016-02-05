@@ -2,21 +2,31 @@
 
 
 def code():
-    '''
-    Implements a code: ASCII mapping from binary string to ASCII string
-    and the other way around. Load the tables in memory. 
-    '''
 
-    
 
     convert = {'101':'Helse- og Idrett', '100':'Humaniora og Pedagogikk', '010':'Kunstfag', '00':'Teknologi og Realfag', '011':'Lærerutdanning', '11':'Økonomi og Samfunnsvitenskap'}
     
-    return (convert) # Load table into memory
-
-inp = raw_input('Input message to be decoded: ')
-
-for letter in inp:
-    
-    print letter
-    print test
+    inp = raw_input('Input message to be decoded: ')    
+    r=''
+    prev=''
+    prev2=''
+    t=''
+    c=''
+    for i in range(0, len(inp)):
+        r = inp[i]
+        prev = inp[i-1]
+        prev2 = inp[i-2]
         
+        if r == '1' and prev == '1' and prev2 == '0':
+            t = '011'
+            c += convert[t]
+    
+    print c    
+
+
+
+
+
+
+
+code()
