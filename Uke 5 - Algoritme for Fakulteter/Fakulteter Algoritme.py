@@ -16,12 +16,17 @@ def code():
         r = inp[i]
         prev = inp[i-1]
         prev2 = inp[i-2]
+        x = len(inp)
+    
         
         if r == '1' and prev == '1' and prev2 == '0':
             t = '011'
             c += convert[t]
-    
-    print c    
+        elif r == '1' and prev == '1':
+            t = '11'
+            c += convert[t]
+    print c
+    print x
 
 
 
