@@ -1,0 +1,114 @@
+<head>
+<meta charset="UTF-8">
+
+</head>
+<div id="prompt">
+<h3>
+Velg Din Vakt
+</h3>
+    
+<p>Huk av boksene og send skjemaet for å registrere fullførte oppgaver.</p>
+</div>
+
+<h3 id="vakt-1-header" style="display:none;">
+Vakt 1
+</h3>
+
+<h3 id="vakt-2-header" style="display:none;">
+Vakt 2
+</h3>
+
+<h3 id="vakt-3-header" style="display:none;">
+Vakt 3
+</h3>
+
+<body>
+<select id='selectvakt'>
+<option value="0">Vakt nr.</option>
+<option value="1">Vakt 1</option>
+<option value="2">Vakt 2</option>
+<option value="3">Vakt 3</option>
+</select>
+    
+    
+    
+    
+<div style='display:none;' id='vakt-1-input'>
+    <br>
+     <form action="vakt1-form.php" method="post">
+   <div class="checkbox">
+    <label>
+      <input type="checkbox" name="oppgave1" value="1"> Telle Kasse
+    </label>
+  </div>
+         
+            <div class="checkbox">
+    <label>
+      <input type="checkbox" name="oppgave2" value="1"> Vaske Skjermer
+    </label>
+  </div>
+         
+            <div class="checkbox">
+    <label>
+      <input type="checkbox" name="oppgave3" value="1"> Oppgave 3
+    </label>
+  </div>
+
+<br>
+    <input type="submit" name="formSubmit" value="Submit" />
+</form>
+
+</div>
+    
+<div style="display:none;" id="vakt-2-input">
+    Vakt 2
+    </div>    
+    
+    
+    <div style="display:none;" id="vakt-3-input">
+    Vakt 3
+    </div>    
+    
+</body>
+    
+
+    
+ <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+<script>
+    $(document).ready(function(){
+    $('#selectvakt').on('change', function() {
+        $("#vakt-1-input").hide();
+        $("#vakt-2-input").hide();
+        $("#vakt-3-input").hide();
+        $("#vakt-1-header").hide();
+        $("#vakt-2-header").hide();
+        $("#vakt-3-header").hide();
+        $("#prompt").hide();
+
+    if ( this.value == '0')
+      {
+        $("#prompt").show();
+
+      }
+        
+      else if ( this.value == '1')
+      {
+        $("#vakt-1-input").show();
+        $("#vakt-1-header").show();
+          
+      }
+      else if ( this.value == '2')
+      {
+        $("#vakt-2-input").show();
+        $("#vakt-2-header").show();
+      }
+      else if ( this.value == '3')
+      {
+        $("#vakt-3-input").show();
+        $("#vakt-3-header").show();
+      }
+    });
+});
+
+</script>
