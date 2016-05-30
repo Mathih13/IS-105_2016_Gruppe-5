@@ -120,12 +120,17 @@ class River(SM):
         self.s23        = "** ["+self.landmanleft+"---\\ \________________ \_chicken"+self.boatman+"_/ /---fox grain "+self.landmanright+"]"
         self.s24        =  "** ["+self.landmanleft+"---\\ \________________ \_"+self.boatman+"_/ /---chicken fox grain "+self.landmanright+"]"
         self.s25        = "Congratulations! The farmer can now sell his goods at the market!"
+        #FOX 
+        self.s26         = "** [chicken grain" +self.landmanleft+" ---\\ \\_fox" + self.boatman+"_/ _____________/---"+self.landmanright+"]"
+        self.s27         = "** [chicken grain"+self.landmanleft+"---\\ \ _________________\_ fox"+self.boatman+" _//---"+self.landmanright+"]"  
+        #Grain
+        self.s28         = "** [chicken fox" +self.landmanleft+" ---\\ \\_grain" + self.boatman+"_/ _____________/---"+self.landmanright+"]"
+        self.s29         = "** [chicken fox"+self.landmanleft+"---\\ \ _________________\_ grain"+self.boatman+" _//---"+self.landmanright+"]"  
         
-        
-        #
         
         #All at right
         self.allAtRight      = "** ["+self.landmanleft+"---\\ \\_"+self.boatman+"_/ ________________ /---chicken fox grain"+self.landmanright+"]"
+        
         
         
         
@@ -140,9 +145,28 @@ class River(SM):
         # i databasen
         
     def statusCheck(self):
+        #Fox fail conditions 
+        #Grain at boat, boat at left, rest at left 
+        if ['boat isat left'] in self.river_db and ['fox isat boat'] in self.river_db and ['chicken isat left'] in self.river_db and ['grain isat left'] in self.river_db:
+            print self.s26 
+        #Grain at boat, boat at right, rest at left 
+        elif ['boat isat righ'] in self.river_db and ['fox isat boat'] in self.river_db and ['chicken isat left'] in self.river_db and ['grain isat left'] in self.river_db:
+            print self.s27
+        
+            
+        
+        #Grain fail conditions 
+        #Grain at boat, boat at left, rest at left. 
+        elif ['boat isat left'] in self.river_db and ['fox isat left'] in self.river_db and ['chicken isat left'] in self.river_db and ['grain isat boat'] in self.river_db:
+                print self.s28    
+        #Grain at boat, boat at right, rest at left 
+        elif ['boat isat right'] in self.river_db and ['fox isat left'] in self.river_db and ['chicken isat left'] in self.river_db and ['grain isat boat'] in self.river_db:
+                print self.s29         
+        
+        #Solution from here. 
         
         #All At Left
-        if ['boat isat left'] in self.river_db and ['fox isat left'] in self.river_db and ['chicken isat left'] in self.river_db and ['grain isat left'] in self.river_db:
+        elif ['boat isat left'] in self.river_db and ['fox isat left'] in self.river_db and ['chicken isat left'] in self.river_db and ['grain isat left'] in self.river_db:
             print self.s1
             
         #All at left, chicken in boat  
