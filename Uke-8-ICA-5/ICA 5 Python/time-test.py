@@ -32,6 +32,7 @@ def search_slow(haystack, needle):
 
 
 
+
 def pront():
     print "Completion Time:"
     print("--- %s seconds ---" % (time.time() - start_time))
