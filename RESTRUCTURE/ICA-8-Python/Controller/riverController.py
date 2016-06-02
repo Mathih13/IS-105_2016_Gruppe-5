@@ -75,7 +75,7 @@ class riverController():
     def getIn(self):
         self.riverdb = self.getDB()
         if ('man isat left' in self.riverdb and 'boat isat left' in self.riverdb):
-            self.river.getIn()
+            clientController.sendAndRecieve('getin')
             self.canvasData.man.move(100, -20)
 
             

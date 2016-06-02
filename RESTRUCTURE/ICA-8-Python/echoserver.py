@@ -30,11 +30,10 @@ class Server():
             
                 # Receive the data in small chunks and retransmit it
                 while True:
-                    data = connection.recv(1024)
-                    print >>sys.stderr, 'received "%s"' % data
-                    if data == 'db':
-                        connection.sendall(self.checkDB())
-                    if data:
+                    self.data = connection.recv(1024)
+                    print >>sys.stderr, 'received "%s"' % self.data
+                    checkMsg()
+                    if self.data:
                         print >>sys.stderr, 'sending data back to the client'
                         connection.sendall('Message Recieved!')
                     else:
@@ -46,6 +45,12 @@ class Server():
                 connection.close()
     
     
+    def checkMsg(self):
+        if data == 'db':
+            connection.sendall(self.checkDB())
+        if data == 'getin':
+            self.river.getIn()
+
 
     def checkDB(self):
         return ' ,'.join(self.river.river_db)
