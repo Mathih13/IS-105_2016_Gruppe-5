@@ -41,7 +41,7 @@ class Server():
                         print >>sys.stderr, 'no more data from', client_address
                         break
             
-            finally:
+            except:
                 # Clean up the connection
                 connection.close()
     

@@ -33,8 +33,8 @@ class Client():
                 print >>sys.stderr, 'received "%s"' % data
                 return data
             
-        finally:
-            pass
+        except:
+            self.close()
           
             
     def close(self):
