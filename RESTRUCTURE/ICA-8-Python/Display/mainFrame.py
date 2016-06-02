@@ -1,9 +1,12 @@
-from view import *
-from ..Controller.riverController import riverController
-
+from Controller.riverController import *
+from Display import *
+from Tkinter import *
 # Contains information about the tkinter frame
 # and loads the canvas and RiverController
 # that interacts with the river data
+from Display.canvas import ourCanvas
+
+
 class ourFrame():
     
     def __init__(self, width, height, master):

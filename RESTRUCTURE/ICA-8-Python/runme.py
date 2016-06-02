@@ -1,4 +1,5 @@
 from Display.mainFrame import *
+from Tkinter import *
 
 '''THIS PYTHON FILE "STARTS" THE PROGRAM!'''
 

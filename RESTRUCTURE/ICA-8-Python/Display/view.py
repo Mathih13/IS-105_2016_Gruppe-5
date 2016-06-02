@@ -7,7 +7,3 @@
 
 from Tkinter import *
 from WorldObject import *
-
-
-from canvas import *
-from mainFrame import *

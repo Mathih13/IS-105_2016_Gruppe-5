@@ -1,15 +1,11 @@
 # Import data about canvas and it's objects as well as the frame
 # for the program
-from view import *
+from Display import *
 
 # River and SM are the "model" of this
 # design
-from river import *
-from sm import *
-
-
-
-
+from Model.river import *
+from Tkinter import *
 
 class riverController():
     
