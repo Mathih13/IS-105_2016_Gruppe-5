@@ -1,11 +1,14 @@
 import socket
 import sys
+from Model.river import *
+
 
 
 class Server():
+
+    river = River(['boat isat left','chicken isat left','fox isat left','man isat left', 'grain isat left'])
     
     def __init__(self, host, port):
-        
         # Create a TCP/IP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         
@@ -29,15 +32,20 @@ class Server():
                 while True:
                     data = connection.recv(1024)
                     print >>sys.stderr, 'received "%s"' % data
+                    if data == 'db':
+                        connection.sendall(self.checkDB())
                     if data:
                         print >>sys.stderr, 'sending data back to the client'
-                        connection.sendall(data)
+                        connection.sendall('Message Recieved!')
                     else:
                         print >>sys.stderr, 'no more data from', client_address
                         break
             
             finally:
                 # Clean up the connection
-                connection.close()    
-                
-s = Server(raw_input('Host Adress: '), input('Port: '))
+                connection.close()
+    
+    
+
+    def checkDB(self):
+        return ' ,'.join(self.river.river_db)

@@ -5,6 +5,7 @@ import sys
 class Client():
     
     def __init__(self, host, port):
+        
         # Create a TCP/IP socket
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         
@@ -30,12 +31,15 @@ class Client():
                 data = self.sock.recv(1024)
                 amount_received += len(data)
                 print >>sys.stderr, 'received "%s"' % data
-        
+                return data
+            
         finally:
-            print >>sys.stderr, 'closing socket'
-            self.sock.close()
+            pass
+          
+            
+    def close(self):
+        print >>sys.stderr, 'closing socket'
+        self.sock.close()
         
 
 
-c = Client(raw_input('Host Adress: '), input('Port: '))
-c.send(raw_input('Enter Message: '))
