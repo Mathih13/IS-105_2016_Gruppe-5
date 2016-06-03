@@ -16,6 +16,6 @@ from Tkinter import *
 # then enter mainloop.
 root = Tk()
 frame = ourFrame(2000, 1500, root)
-rc = riverController(frame.master, frame.canvasData, Client('localhost', 5005))
+rc = riverController(frame.master, frame.canvasData, Client(raw_input('Host Adress: '), input('Port: ')))
 root.title('River Crossing')
 root.mainloop()
