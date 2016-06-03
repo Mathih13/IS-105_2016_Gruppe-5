@@ -6,11 +6,15 @@ from Model.river import *
 
 class Server():
 
-    river = River(['boat isat left','chicken isat left','fox isat left','man isat left', 'grain isat left'])
+    
     
     def __init__(self, host, port):
         # Create a TCP/IP socket
+        self.river =  River(['boat isat left','chicken isat left','fox isat left','man isat left', 'grain isat left'])
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        print 'Server River:'
+        print self.river
+        print self.checkDB()
         
         # Bind the socket to the port
         server_address = (host, port)
@@ -32,25 +36,28 @@ class Server():
                 while True:
                     self.data = connection.recv(1024)
                     print >>sys.stderr, 'received "%s"' % self.data
-                    checkMsg()
-                    if self.data:
-                        print >>sys.stderr, 'sending data back to the client'
-                        connection.sendall('Message Recieved!')
+                    if self.data == 'db':
+                        connection.sendall(self.checkDB())
+                    elif self.data == 'getin':
+                        self.river.getIn()
+                        connection.sendall(self.checkDB())
+                    elif self.data == 'getout':
+                        self.river.getout()
+                        connection.sendall(self.checkDB())                    
+                        
+                        
                     else:
                         print >>sys.stderr, 'no more data from', client_address
                         break
+                    print >>sys.stderr, 'sending data back to the client'
             
-            except:
+            finally:
                 # Clean up the connection
                 connection.close()
     
     
-    def checkMsg(self):
-        if data == 'db':
-            connection.sendall(self.checkDB())
-        if data == 'getin':
-            self.river.getIn()
 
 
     def checkDB(self):
+        print 'CheckDB: '
         return ' ,'.join(self.river.river_db)

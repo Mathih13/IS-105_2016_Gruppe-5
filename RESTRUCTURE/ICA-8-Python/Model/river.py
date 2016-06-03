@@ -35,16 +35,16 @@ class River(SM):
         if ([item +' isat left'] in self.river_db):
             self.remove([item+' isat left'])
         else:
-            self.remove([item+' isat right'])
+            self.remove(item+' isat right')
         self.add([item+' isat boat'])
         self.updateWorld()
     
     def takeOut(self, item):
-        self.remove([item+' isat boat'])
+        self.remove(item+' isat boat')
         if 'boat isat left' in self.river_db:
-            self.add([item+' isat left'])
+            self.add(item+' isat left')
         if 'boat isat right' in self.river_db:
-            self.add([item+' isat right'])
+            self.add(item+' isat right')
         self.updateWorld()
     
     
@@ -57,7 +57,7 @@ class River(SM):
             
         self.add('man isat boat') # Add man to boat.
         self.updateWorld()
-    
+        
     def getout(self):
         # Check if the man is in the boat at all
         if 'man isat boat' in self.river_db:
@@ -94,7 +94,7 @@ class River(SM):
         # Her implementeres logikken for "vakker" utskrift
         # ...
         
-        
+      
         print "** Here is the state of the river-world:"
         
         self.s1         = "** [chicken fox grain" +self.landmanleft+" ---\\ \\_" + self.boatman+"_/ _____________/---"+self.landmanright+"]"
@@ -131,7 +131,7 @@ class River(SM):
         #All at right
         self.allAtRight      = "** ["+self.landmanleft+"---\\ \\_"+self.boatman+"_/ ________________ /---chicken fox grain"+self.landmanright+"]"
         
-        
+       
         
         
         # .... slik kan alle tilstander "tegnes"
@@ -296,3 +296,6 @@ class River(SM):
         
     def killWorld(self):
         sys.exit()    
+        
+    def test(self):
+        print 'test function called!'

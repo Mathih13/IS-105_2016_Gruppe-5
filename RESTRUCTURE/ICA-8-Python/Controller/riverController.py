@@ -1,7 +1,7 @@
 # Import data about canvas and it's objects as well as the frame
 # for the program
 from Display import *
-from Server import clientController
+from Server import *
 
 # River and SM are the "model" of this
 # design
@@ -10,11 +10,13 @@ from Tkinter import *
 
 class riverController():
     
-    def __init__(self, master, canvasData):
+    def __init__(self, master, canvasData, client):
         self.master = master
         self.canvasData = canvasData
         self.setUpButtons()
-        self.riverdb = self.getDB()
+        self.client = client
+        self.riverdb = self.sendAndRecieve('db')
+        
     
   
         
@@ -56,39 +58,18 @@ class riverController():
     
         
     def getOut(self):
-        self.riverdb = self.getDB()
-        if ('man isat boat' in self.riverdb):
-            if ('boat isat left' in self.riverdb):
-                self.canvasData.man.move(-100, 20)
-                self.river.getout()
-            elif ('boat isat right' in self.riverdb):
-                self.canvasData.man.move(+100, 20)
-                self.river.getout()
-                
-            
-        else:
-            print "Man is not in boat"
-            return
+        self.riverdb = self.sendAndRecieve('getout')
 
 
         
     def getIn(self):
-        self.riverdb = self.getDB()
-        if ('man isat left' in self.riverdb and 'boat isat left' in self.riverdb):
-            clientController.sendAndRecieve('getin')
-            self.canvasData.man.move(100, -20)
-
-            
-        elif ('man isat right' in self.riverdb and 'boat isat right' in self.riverdb):
-            self.river.getIn()
-            self.canvasData.man.move(-100, -20)
-        elif ('man isat boat' in self.riverdb):
-            print "Man is already in boat"
-            return
+        self.riverdb = self.sendAndRecieve('getin')
+       
+        
 
       
     def moveBoatRight(self):
-        self.riverdb = self.getDB()
+        self.riverdb = self.sendAndRecieve('db')
         
         
         if ('chicken isat boat' or 'fox isat boat' or 'grain isat boat' in self.riverdb and ('boat isat left' in self.riverdb)):
@@ -114,7 +95,7 @@ class riverController():
                 
 
     def moveBoatLeft(self):
-        self.riverdb = self.getDB()
+        self.riverdb = self.sendAndRecieve('db')
 
         
         if ('chicken isat boat' or 'fox isat boat' or 'grain isat boat' in self.riverdb and 'boat isat right' in self.riverdb):
@@ -135,7 +116,7 @@ class riverController():
         
             
     def chickenOut(self):
-        self.riverdb = self.getDB()
+        self.riverdb = self.sendAndRecieve('db')
         if (['chicken isat boat']  and 'boat isat right'in self.riverdb):
             self.river.takeOut("chicken")
             self.canvasData.chicken.move(220, 20) 
@@ -147,7 +128,7 @@ class riverController():
     
     
     def chickenIn(self):
-        self.riverdb = self.getDB()
+        self.riverdb = self.sendAndRecieve('db')
         
         if ('grain isat boat' in self.riverdb):
             print "boat is full"        
@@ -168,7 +149,7 @@ class riverController():
      
 
     def foxIn(self):
-        self.riverdb = self.getDB()
+        self.riverdb = self.sendAndRecieve('db')
 
         if ('chicken isat boat' in self.riverdb):
             print "boat is full"
@@ -190,7 +171,7 @@ class riverController():
        
         
     def grainIn(self):
-        self.riverdb = self.getDB()
+        self.riverdb = self.sendAndRecieve('db')
         
         if ('chicken isat boat' in self.riverdb):
             print "boat is full"        
@@ -203,11 +184,23 @@ class riverController():
             self.canvasData.grain.move(180, -20)  
             
     def grainOut(self):
-        self.riverdb = self.getDB()
+        self.riverdb = self.sendAndRecieve('db')
         if ('grain isat boat' and 'boat isat right' in self.riverdb):
             self.river.takeOut("grain")
             self.canvasData.grain.move(+160, 20)
             
-    def getDB(self):
-        return clientController.sendAndRecieve('db')    
+    
+    
+    def sendAndRecieve(self, message):
+        msg = message
+        answer = self.client.send(msg)
+        answer = answer.split(',')
+        return answer
+    
+    def close(self):
+        self.client.close() 
+           
+            
+    
+            
             

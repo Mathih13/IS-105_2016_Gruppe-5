@@ -2,4 +2,4 @@ from echoserver import *
 
 
 
-server = Server('localhost', 10000)
+server = Server('localhost', 5005)
