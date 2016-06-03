@@ -1,14 +1,18 @@
-from view import *
-from riverController import *
-
+from Controller.riverController import *
+from Display import *
+from Tkinter import *
 # Contains information about the tkinter frame
 # and loads the canvas and RiverController
 # that interacts with the river data
+from Display.canvas import ourCanvas
+
+
 class ourFrame():
     
     def __init__(self, width, height, master):
         # Create the background frame
-        frame = Frame(master, width=width, height=height, bd=1)
+        self.master = master
+        frame = Frame(self.master, width=width, height=height, bd=1)
         frame.pack()
         
         # Create the "inner frame" to make it look nicer
@@ -16,15 +20,10 @@ class ourFrame():
         self.iframe5.pack(expand=1, fill=X, pady=10, padx=5)
         
         # Grab the data of our canvas and create a new one.
-        canvasData = ourCanvas(1400, 500, self.iframe5)
-        c = canvasData.w
+        self.canvasData = ourCanvas(1400, 500, self.iframe5)
+        c = self.canvasData.w
         c.pack()
-        canvasData.setUp()
-        
-        # Create the riverController, feed it the TK master and the canvas.
-        self.riverController = riverController(master, canvasData)
-        
-        
+        self.canvasData.setUp()
         
 
 

@@ -1,7 +1,7 @@
 from view import *
+from Tkinter import *
 
-
-class ourCanvas():
+class ourCanvas:
     
     def __init__(self, width, height, root):
         self.canvasWidth = width
